@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +34,10 @@ public class Publicist {
 
     @OneToOne(fetch = FetchType.LAZY)
     private Photo photo;
+
+    @Column(name = "password")
+    @Size(min = 2, message = "Не меньше 5 символов")
+    private String password;
 
     @OneToMany(mappedBy = "publicist", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<News> news = new ArrayList<>();
