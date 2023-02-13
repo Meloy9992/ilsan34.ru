@@ -9,6 +9,8 @@ public interface PublicistDao {
 
     Publicist getById(Long id);
 
+    Publicist getByUsername(String username);
+
     void updatePublicist(Publicist publicist);
 
     void deletePublicist(Long id);

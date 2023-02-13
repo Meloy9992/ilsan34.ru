@@ -1,12 +1,17 @@
 package com.example.ilsan34.clientManager.model;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "trainer")
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class Trainer {
 
     @Id
@@ -26,7 +31,8 @@ public class Trainer {
     @Column(name = "work_exp")
     private String workExp;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(optional = false, cascade = CascadeType.ALL)
+    //@JoinColumn(name = "id_photo")
     private Photo photo;
 
     @Column(name = "phone_number")

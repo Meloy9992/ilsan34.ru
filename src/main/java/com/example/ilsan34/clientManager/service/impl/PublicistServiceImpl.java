@@ -3,9 +3,10 @@ package com.example.ilsan34.clientManager.service.impl;
 
 import com.example.ilsan34.clientManager.model.Publicist;
 import com.example.ilsan34.clientManager.service.PublicistService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class PublicistServiceImpl implements PublicistService {
     @Override
     public void addNewPublicist(Publicist publicist) {

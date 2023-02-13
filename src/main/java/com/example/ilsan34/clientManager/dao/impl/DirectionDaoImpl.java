@@ -2,9 +2,10 @@ package com.example.ilsan34.clientManager.dao.impl;
 
 import com.example.ilsan34.clientManager.dao.DirectionDao;
 import com.example.ilsan34.clientManager.model.Direction;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public class DirectionDaoImpl implements DirectionDao {
 
     @Override

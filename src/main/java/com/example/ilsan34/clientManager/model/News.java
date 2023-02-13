@@ -1,14 +1,9 @@
 package com.example.ilsan34.clientManager.model;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import javax.persistence.*;
+import lombok.*;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Table(name = "news")
@@ -33,9 +28,9 @@ public class News {
     @Column(name = "date_publication")
     private Date date;
 
-    @OneToMany(mappedBy = "photo", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Photo> photos = new ArrayList<>();
+    @OneToMany(mappedBy = "news", fetch = FetchType.EAGER)
+    private List<Photo> photo = new ArrayList<>();
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, cascade = CascadeType.ALL)
     private Publicist publicist;
 }

@@ -3,9 +3,10 @@ package com.example.ilsan34.clientManager.dao.impl;
 
 import com.example.ilsan34.clientManager.dao.PhotoDao;
 import com.example.ilsan34.clientManager.model.Photo;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public class PhotoDaoImpl implements PhotoDao {
 
     @Override

@@ -1,14 +1,7 @@
 package com.example.ilsan34.clientManager.model;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.springframework.context.annotation.Lazy;
-
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.*;
+import lombok.*;
 
 @Entity
 @Table(name = "photo")
@@ -27,12 +20,13 @@ public class Photo {
     @Lob
     private byte[] photo;
 
-    @OneToOne(mappedBy = "photo", cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY)
+    @OneToOne(optional = false, mappedBy = "photo")
     private Publicist publicist;
 
-    @OneToOne(mappedBy = "photo", cascade = CascadeType.ALL, optional = false, fetch = FetchType.LAZY)
+    @OneToOne(optional = false, mappedBy = "photo")
     private  Trainer trainer;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    //@JoinColumn(name = "id_news")
     private News news;
 }

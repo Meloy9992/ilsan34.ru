@@ -2,9 +2,10 @@ package com.example.ilsan34.clientManager.dao.impl;
 
 import com.example.ilsan34.clientManager.dao.SportHallDao;
 import com.example.ilsan34.clientManager.model.SportHall;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public class SportHallDaoImpl implements SportHallDao {
     @Override
     public void addNewSportHall(SportHall sportHall) {

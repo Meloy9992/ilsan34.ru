@@ -3,9 +3,10 @@ package com.example.ilsan34.clientManager.service.impl;
 
 import com.example.ilsan34.clientManager.model.SportHall;
 import com.example.ilsan34.clientManager.service.SportHallService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class SportHallServiceImpl implements SportHallService {
     @Override
     public void addNewSportHall(SportHall sportHall) {

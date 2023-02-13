@@ -2,9 +2,10 @@ package com.example.ilsan34.clientManager.dao.impl;
 
 import com.example.ilsan34.clientManager.dao.NewsDao;
 import com.example.ilsan34.clientManager.model.News;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public class NewsDaoImpl implements NewsDao {
     @Override
     public void addNewNews(News news) {

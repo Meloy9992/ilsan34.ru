@@ -3,9 +3,10 @@ package com.example.ilsan34.clientManager.service.impl;
 
 import com.example.ilsan34.clientManager.model.Photo;
 import com.example.ilsan34.clientManager.service.PhotoService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class PhotoServiceImpl implements PhotoService {
     @Override
     public void addNewPhoto(Photo photo) {
