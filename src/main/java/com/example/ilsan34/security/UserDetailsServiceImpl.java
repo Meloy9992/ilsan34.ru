@@ -22,6 +22,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
         Publicist publicist = publicistRepository.findByUserName(userName).orElseThrow(() ->
                 new UsernameNotFoundException("User doesn't exist"));
+        System.out.println(publicist.getRoles().get(0).getName() + " role");
         return SecurityPublicist.fromPublicist(publicist);
     }
 }
