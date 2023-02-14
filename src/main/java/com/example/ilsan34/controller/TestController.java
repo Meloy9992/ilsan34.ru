@@ -9,11 +9,12 @@ public class TestController {
 
     @GetMapping("/news")
     public String main(){
+        System.out.println();
         return "news";
     }
 
     @GetMapping("/admin")
-    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public String admin(){
         return "admin";
     }

@@ -50,7 +50,7 @@ public class Publicist implements UserDetails {
     @JoinTable(name = "publicist_roles",
             joinColumns = { @JoinColumn(name = "id_publicist") },
             inverseJoinColumns = { @JoinColumn(name = "id_role") })
-    private Set<Role> roles;
+    private List<Role> roles;
 
     @OneToMany(mappedBy = "publicist", fetch = FetchType.LAZY)
     private List<News> news = new ArrayList<>();

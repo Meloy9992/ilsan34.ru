@@ -31,6 +31,7 @@ public class Role implements GrantedAuthority {
 
     @Override
     public String getAuthority() {
-        return getAuthority();
+        System.out.println(getName() + " role is user");
+        return getName();
     }
 }
