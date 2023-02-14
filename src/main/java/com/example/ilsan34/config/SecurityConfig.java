@@ -37,30 +37,30 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/news").permitAll()
-                .anyRequest()
-                .authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/auth/login").permitAll()
-                .defaultSuccessUrl("/")
-                .and()
-                .logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/auth/logout", "POST"))
-                .invalidateHttpSession(true)
-                .clearAuthentication(true)
-                .deleteCookies("JSESSIONID")
-                .logoutSuccessUrl("/auth/login");
+                .antMatchers("/news").permitAll() // доступ всем к странице news
+                .anyRequest() //другие запросы
+                .authenticated() // авторизированы
+                .and()// и
+                .formLogin() // форма для логина находится по ссылке
+                .loginPage("/auth/login").permitAll() // страница для логина
+                .defaultSuccessUrl("/") // после успешного входа перейти на /
+                .and() // и
+                .logout() // если выход
+                .logoutRequestMatcher(new AntPathRequestMatcher("/auth/logout", "POST")) //если произошел запрос на страницу /auth/logout назначить метод post
+                .invalidateHttpSession(true) // инвалидировать http сессию
+                .clearAuthentication(true) // очистить аутентификатор
+                .deleteCookies("JSESSIONID") // удалить кукис
+                .logoutSuccessUrl("/auth/login"); // после успешного выхода перенаправить на страницу
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.authenticationProvider(daoAuthenticationProvider());
+        auth.authenticationProvider(daoAuthenticationProvider()); // настройка кастомного провайдера
     }
 
     @Bean
     protected PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder(12);
+        return new BCryptPasswordEncoder(12); // настройка шифрования пароля
     }
 
     @Bean
@@ -68,6 +68,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
         daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
         daoAuthenticationProvider.setUserDetailsService(userDetailsService);
-        return daoAuthenticationProvider;
+        return daoAuthenticationProvider; // кастомный провайдер
     }
 }

@@ -24,14 +24,8 @@ public class Role implements GrantedAuthority {
     @Column(name = "name")
     private String name;
 
-/*
-    @OneToMany(mappedBy = "publicists")
-    private List<Publicist> publicists;
-*/
-
     @Override
     public String getAuthority() {
-        System.out.println(getName() + " role is user");
         return getName();
     }
 }
