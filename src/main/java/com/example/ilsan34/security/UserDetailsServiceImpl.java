@@ -24,4 +24,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 new UsernameNotFoundException("User doesn't exist"));
         return SecurityPublicist.fromPublicist(publicist);
     }
+
+
 }

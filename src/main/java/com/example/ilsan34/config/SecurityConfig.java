@@ -38,8 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                //.antMatchers("/resources/**").permitAll()
-                .antMatchers("/resources/**").permitAll()
+                .antMatchers("/resources/**").permitAll()//разрешение всем к папке ресурсы и все что в ней
                 .antMatchers("/news").permitAll() // доступ всем к странице news
                 .anyRequest() //другие запросы
                 .authenticated() // авторизированы
