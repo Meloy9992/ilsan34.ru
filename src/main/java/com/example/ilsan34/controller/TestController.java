@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class TestController {
-    
     @GetMapping("/admin")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public String admin(){

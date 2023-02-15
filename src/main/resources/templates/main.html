@@ -11,17 +11,7 @@
 
 </head>
   <body>
-  <div>
-      <ul class="nav col-12 col-md-8 mb-6 justify-content-center mb-md-0">
-          <a href="/" class="d-flex align-items-center col-md-1 mb-0 mb-md-2 ">
-          <img width="80" height="80" src="/static/images/logo.png"></a>
-          <a href="/" class="nav-link px-2 link-secondary limits">Главная</a>
-          <a href="/about" class="nav-link px-2 link-dark limits">О нас</a>
-          <a href="/our_directions" class="nav-link px-2 link-dark limits">Наши направления</a>
-          <a href="/questions" class="nav-link px-2 link-dark limits">Часто задаваемые вопросы</a>
-          <a href="/news" class="nav-link px-2 link-dark limits">Новости</a>
-      </ul>
-  </div>
+<header th:insert="blocks/header :: header"></header>
 
   <style type="text/css">
 
@@ -31,9 +21,8 @@
       }
 
       .logo {
-
           min-height: 558px;
-          background-image: url(/static/images/main_background.jpg);
+          background-image: url(/images/main_background.jpg);
           background-position: 100% 100%;
           background-size: cover;
           height: fit-content;
@@ -44,10 +33,10 @@
 
       }
       .action_form{
+          display: table;
+          left: 50%;
           width:400px;
           height:200px;
-
-          left: 50%;
           margin: 0 auto 60px;
       }
 
@@ -242,22 +231,8 @@
       </div>
   </div>
 
-<div>
-    <footer class="my-5 pt-5 text-muted text-center text-small">
-        <div class="col-md-4 d-flex align-items-center">
-            <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-                <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
-            </a>
-            <span class="mb-3 mb-md-0 text-muted">© 2022 Company, Inc</span>
-        </div>
 
-        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
-            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
-            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
-        </ul>
-    </footer>
-</div>
 
 </body>
+<footer th:insert="blocks/footer :: footer" />
 </html>
