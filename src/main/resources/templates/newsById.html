@@ -100,8 +100,10 @@
         <a th:text="${news.getDescription()}">Текст</a>
       </div>
       <nav class="blog-pagination">
-        <a class="btn btn-outline-primary" href="#">Предыдущая</a>
-        <a class="btn btn-outline-secondary disabled">Следующая</a>
+        <a th:if="${news.getId() == 0}" class="btn btn-outline-primary disabled">Предыдущая</a>
+        <a th:unless="${news.getId() == 0}" class="btn btn-outline-primary"  th:href="@{'/news/' + ${news.getId() - 1}}" >Предыдущая</a>
+        <a class="btn btn-outline-secondary " th:href="@{'/news/' + ${news.getId() + 1}}">Следующая</a>
+
       </nav>
     </div><!-- /.blog-main -->
   </div>
