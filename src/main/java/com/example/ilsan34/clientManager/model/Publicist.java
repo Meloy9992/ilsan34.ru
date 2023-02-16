@@ -51,7 +51,8 @@ public class Publicist implements UserDetails {
             inverseJoinColumns = { @JoinColumn(name = "id_role") })
     private List<Role> roles;
 
-    @OneToMany(mappedBy = "publicist")
+    @OneToMany
+    @JoinColumn(name = "publicist_id_publicist", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
     private List<News> news = new ArrayList<>();
 
     @Column(name = "phone_number")

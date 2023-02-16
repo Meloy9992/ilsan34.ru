@@ -3,6 +3,7 @@ package com.example.ilsan34.clientManager.model;
 import javax.persistence.*;
 import lombok.*;
 
+import java.math.BigInteger;
 import java.util.*;
 
 @Entity
@@ -16,7 +17,7 @@ public class News {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_news")
-    private Long id;
+    private BigInteger id;
 
     @Column(name = "name_news")
     private String name;
