@@ -13,7 +13,7 @@ import java.util.List;
 
 
 @Entity
-@Table(name = "publicist", schema = "public")
+@Table(name = "publicist")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -22,7 +22,7 @@ public class Publicist implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_publicist")
+    @Column(name = "id_publicist", unique = true, nullable = false)
     private BigInteger id;
 
     @Column(name = "user_name")
@@ -51,8 +51,7 @@ public class Publicist implements UserDetails {
             inverseJoinColumns = { @JoinColumn(name = "id_role") })
     private List<Role> roles;
 
-    @OneToMany
-    @JoinColumn(name = "publicist_id_publicist", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
+    @OneToMany(mappedBy = "publicist", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<News> news = new ArrayList<>();
 
     @Column(name = "phone_number")

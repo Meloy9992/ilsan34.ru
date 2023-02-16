@@ -11,5 +11,5 @@ import java.util.Optional;
 @Repository
 public interface PublicistRepository extends JpaRepository<Publicist, String> {
     Optional<Publicist> findByUserName(String username);
-    Publicist findById(BigInteger id);
+    Optional<Publicist> findById(BigInteger id);
 }

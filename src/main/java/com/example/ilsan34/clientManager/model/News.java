@@ -32,7 +32,7 @@ public class News {
     @OneToMany(mappedBy = "news", fetch = FetchType.EAGER)
     private List<Photo> photo = new ArrayList<>();
 
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "publicist_id_publicist", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
+    @ManyToOne
+    @JoinColumn(name = "fk_publicist")
     private Publicist publicist;
 }
