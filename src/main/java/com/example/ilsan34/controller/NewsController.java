@@ -41,6 +41,7 @@ public class NewsController {
     @GetMapping("/{id}")
     public String getNewsById(@PathVariable("id") BigInteger id, Model model) {
         model.addAttribute("news", newsService.getById(id).get());
+        model.addAttribute("size", Integer.parseInt(String.valueOf((newsService.getAll().size() - 1))));
         return "newsById";
     }
 }

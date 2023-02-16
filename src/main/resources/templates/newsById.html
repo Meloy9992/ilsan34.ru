@@ -102,7 +102,8 @@
       <nav class="blog-pagination">
         <a th:if="${news.getId() == 0}" class="btn btn-outline-primary disabled">Предыдущая</a>
         <a th:unless="${news.getId() == 0}" class="btn btn-outline-primary"  th:href="@{'/news/' + ${news.getId() - 1}}" >Предыдущая</a>
-        <a class="btn btn-outline-secondary " th:href="@{'/news/' + ${news.getId() + 1}}">Следующая</a>
+        <a th:if="${news.getId() == size}" class="btn btn-outline-primary disabled">Следующая</a>
+        <a th:unless="${news.getId() == size}" class="btn btn-outline-primary"  th:href="@{'/news/' + ${news.getId() + 1}}" >Следующая</a>
 
       </nav>
     </div><!-- /.blog-main -->
