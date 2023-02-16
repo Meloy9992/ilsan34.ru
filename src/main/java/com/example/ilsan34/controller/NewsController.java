@@ -34,7 +34,6 @@ public class NewsController {
     @GetMapping("/allNews")
     public String getNews(Model model){
         List<News> newsList = newsService.getAll();
-        System.out.println(newsList.get(0).getPublicist().getUsername() + " from controller");
         model.addAttribute("news", newsList);
         return "news";
     }
