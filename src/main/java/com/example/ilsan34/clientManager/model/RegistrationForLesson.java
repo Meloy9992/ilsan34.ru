@@ -3,6 +3,9 @@ package com.example.ilsan34.clientManager.model;
 import javax.persistence.*;
 import lombok.*;
 
+import java.math.BigInteger;
+import java.util.Optional;
+
 @Entity
 @Table(name = "registration_for_lesson")
 @NoArgsConstructor
@@ -13,7 +16,8 @@ public class RegistrationForLesson {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id_registration_for_lesson")
+    private BigInteger id;
 
     @Column(name = "first_name")
     private String firstName;
@@ -29,4 +33,20 @@ public class RegistrationForLesson {
 
     @Column(name = "comment")
     private String comment;
+
+    public RegistrationForLesson(String firstName, String lastName, Long phoneNumber, String email, String comment) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.comment = comment;
+    }
+
+    public RegistrationForLesson(String firstName, String lastName, Long phoneNumber, Optional<String> email, Optional<String> comment) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.email = email.get();
+        this.comment = comment.get();
+    }
 }
