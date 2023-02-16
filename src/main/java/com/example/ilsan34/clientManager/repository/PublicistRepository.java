@@ -9,7 +9,7 @@ import java.math.BigInteger;
 import java.util.Optional;
 
 @Repository
-public interface PublicistRepository extends JpaRepository<Publicist, String> {
+public interface PublicistRepository extends JpaRepository<Publicist, BigInteger> {
     Optional<Publicist> findByUserName(String username);
     Optional<Publicist> findById(BigInteger id);
 }

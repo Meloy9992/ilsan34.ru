@@ -16,8 +16,8 @@
 
 <style type="text/css">
 
-  .limits{
-    margin: 20px -30px 0px 60px;
+  .line{
+    display:inline-block;
 
   }
 
@@ -92,11 +92,13 @@
   <div class="row">
     <div class="col-md-8 blog-main">
       <h1 class="pb-4 mb-4 font-italic border-bottom" th:text="${news.getName()}">Заголовок</h1>
-      <div class="blog-post">
-        <p class="blog-post-meta" th:text="${news.getDate()}">Дата</p>
-        <a th:text="${news.getPublicist().getFirstName()}">Автор</a>
-        <a th:text="${news.getDescription()}">Текст</a>
+      <div class="blog-post line">
+        <p class="blog-post-meta" th:text="${news.getDate()}">Дата
       </div><!-- /.blog-post -->
+      <a th:text="${news.getPublicist().getFirstName()}">Автор</a></p>
+      <div class="blog-post">
+        <a th:text="${news.getDescription()}">Текст</a>
+      </div>
       <nav class="blog-pagination">
         <a class="btn btn-outline-primary" href="#">Предыдущая</a>
         <a class="btn btn-outline-secondary disabled">Следующая</a>

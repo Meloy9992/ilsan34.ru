@@ -2,6 +2,8 @@ package com.example.ilsan34.clientManager.model;
 
 import javax.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 import java.math.BigInteger;
 import java.util.*;
@@ -29,10 +31,11 @@ public class News {
     @Column(name = "date_publication")
     private Date date;
 
-    @OneToMany(mappedBy = "news", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "news", fetch = FetchType.LAZY)
     private List<Photo> photo = new ArrayList<>();
 
-    @ManyToOne
-    @JoinColumn(name = "fk_publicist")
+    @NotFound(action= NotFoundAction.IGNORE)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_publicist")
     private Publicist publicist;
 }

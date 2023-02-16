@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.math.BigInteger;
+import java.util.List;
 
 @Controller
 @RequestMapping("/news")
@@ -32,7 +33,9 @@ public class NewsController {
 
     @GetMapping("/allNews")
     public String getNews(Model model){
-        model.addAttribute("news", newsService.getAll());
+        List<News> newsList = newsService.getAll();
+        System.out.println(newsList.get(0).getPublicist().getUsername() + " from controller");
+        model.addAttribute("news", newsList);
         return "news";
     }
 

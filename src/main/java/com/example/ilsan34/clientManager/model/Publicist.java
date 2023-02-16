@@ -51,8 +51,6 @@ public class Publicist implements UserDetails {
             inverseJoinColumns = { @JoinColumn(name = "id_role") })
     private List<Role> roles;
 
-    @OneToMany(mappedBy = "publicist", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<News> news = new ArrayList<>();
 
     @Column(name = "phone_number")
     private Long phoneNumber;
