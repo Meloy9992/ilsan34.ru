@@ -26,7 +26,7 @@ public class MainController {
     @GetMapping("/")
     public String main(Model model){
         model.addAttribute("directions", directionService.getAll());
-        return "main";
+        return "index";
     }
 
     @PostMapping("/")
@@ -42,6 +42,6 @@ public class MainController {
                 email,
                 comment);
         registrationForLessonService.addNewRegistrationForLesson(registration);
-        return "main";
+        return "index";
     }
 }
