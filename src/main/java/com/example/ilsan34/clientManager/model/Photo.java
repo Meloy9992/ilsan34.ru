@@ -2,6 +2,9 @@ package com.example.ilsan34.clientManager.model;
 
 import javax.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Type;
+
+import java.math.BigInteger;
 
 @Entity
 @Table(name = "photo")
@@ -14,19 +17,19 @@ public class Photo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_photo")
-    private Long id;
+    private BigInteger id;
 
     @Column(name = "photo")
-    @Lob
-    private byte[] photo;
+   // @Lob
+    private String photo;
 
-    @OneToOne(optional = false, mappedBy = "photo")
+/*    @OneToOne(optional = false, mappedBy = "photo")
     private Publicist publicist;
 
     @OneToOne(optional = false, mappedBy = "photo")
-    private  Trainer trainer;
+    private  Trainer trainer;*/
 
-    @ManyToOne(optional = false, cascade = CascadeType.ALL)
-    //@JoinColumn(name = "id_news")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_news")
     private News news;
 }

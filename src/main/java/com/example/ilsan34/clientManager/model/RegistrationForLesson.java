@@ -34,13 +34,6 @@ public class RegistrationForLesson {
     @Column(name = "comment")
     private String comment;
 
-    public RegistrationForLesson(String firstName, String lastName, Long phoneNumber, String email, String comment) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.comment = comment;
-    }
 
     public RegistrationForLesson(String firstName, String lastName, Long phoneNumber, Optional<String> email, Optional<String> comment) {
         this.firstName = firstName;

@@ -1,20 +1,31 @@
 package com.example.ilsan34.clientManager.service.impl;
 
 import com.example.ilsan34.clientManager.model.Trainer;
+import com.example.ilsan34.clientManager.repository.TrainerRepository;
 import com.example.ilsan34.clientManager.service.TrainerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigInteger;
 import java.util.List;
 @Service
 public class TrainerServiceImpl implements TrainerService {
-    @Override
-    public void addNewTrainer(Trainer trainer) {
 
+    private TrainerRepository trainerRepository;
+
+    @Autowired
+    public TrainerServiceImpl(TrainerRepository trainerRepository) {
+        this.trainerRepository = trainerRepository;
     }
 
     @Override
-    public Trainer getById(Long id) {
-        return null;
+    public void addNewTrainer(Trainer trainer) {
+    }
+
+    @Override
+    public Trainer getById(BigInteger id) {
+        Trainer trainer = trainerRepository.findById(id).get();
+        return trainer;
     }
 
     @Override
@@ -23,12 +34,13 @@ public class TrainerServiceImpl implements TrainerService {
     }
 
     @Override
-    public void deleteTrainer(Long id) {
+    public void deleteTrainer(BigInteger id) {
 
     }
 
     @Override
     public List<Trainer> getAll() {
-        return null;
+        List<Trainer> trainers = (List<Trainer>) trainerRepository.findAll();
+        return trainers;
     }
 }

@@ -38,21 +38,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/resources/**").permitAll()//разрешение всем к папке ресурсы и все что в ней
-                .antMatchers("/news").permitAll() // доступ всем к странице news
-                .anyRequest() //другие запросы
-                .authenticated() // авторизированы
-                .and()// и
-                .formLogin() // форма для логина находится по ссылке
-                .loginPage("/auth/login").permitAll() // страница для логина
-                .defaultSuccessUrl("/") // после успешного входа перейти на /
-                .and() // и
-                .logout() // если выход
+                .antMatchers("/resources/**").permitAll()
+                .antMatchers("/news").permitAll()
+                .anyRequest()
+                .authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/auth/login").permitAll()
+                .defaultSuccessUrl("/")
+                .and()
+                .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/auth/logout", "POST")) //если произошел запрос на страницу /auth/logout назначить метод post
-                .invalidateHttpSession(true) // инвалидировать http сессию
-                .clearAuthentication(true) // очистить аутентификатор
-                .deleteCookies("JSESSIONID") // удалить кукис
-                .logoutSuccessUrl("/auth/login"); // после успешного выхода перенаправить на страницу
+                .invalidateHttpSession(true)
+                .clearAuthentication(true)
+                .deleteCookies("JSESSIONID")
+                .logoutSuccessUrl("/auth/login");
     }
 
     @Override

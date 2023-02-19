@@ -3,6 +3,7 @@ package com.example.ilsan34.clientManager.model;
 import javax.persistence.*;
 import lombok.*;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class Trainer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_trainer")
-    private Long id;
+    private BigInteger id;
 
     @Column(name = "first_name")
     private String firstName;
@@ -32,7 +33,7 @@ public class Trainer {
     private String workExp;
 
     @OneToOne(optional = false, cascade = CascadeType.ALL)
-    //@JoinColumn(name = "id_photo")
+    //ч@JoinColumn(name = "id_photo")
     private Photo photo;
 
     @Column(name = "phone_number")

@@ -31,7 +31,7 @@ public class News {
     @Column(name = "date_publication")
     private Date date;
 
-    @OneToMany(mappedBy = "news", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "news", cascade = CascadeType.ALL)
     private List<Photo> photo = new ArrayList<>();
 
     @NotFound(action= NotFoundAction.IGNORE)
