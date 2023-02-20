@@ -48,20 +48,10 @@ public class NewsController {
     }
 
     @GetMapping("/{id}")
-    public String getNewsById(@PathVariable("id") BigInteger id, Model model) throws IOException {
-
-       // List<Photo> photos = newsService.getById(id).get().getPhoto();
-        Photo photo = photoService.getById(BigInteger.valueOf(4));
-        System.out.println(photo);
-
-        byte[] decodedBytes = Base64.getDecoder().decode(photo.getPhoto());
-
-        //FileUtils.writeByteArrayToFile(new File("file.png"), decodedBytes);
-
-
-        //model.addAttribute("image", base64Encoded);
+    public String getNewsById(@PathVariable("id") BigInteger id, Model model) {
+        model.addAttribute("image", newsService.getById(id).get().getPhoto());
         model.addAttribute("news", newsService.getById(id).get());
-        model.addAttribute("size", Integer.parseInt(String.valueOf((newsService.getAll().size() - 1))));
+        model.addAttribute("size", Integer.parseInt(String.valueOf((newsService.getAll().size()))));
         return "newsById";
     }
 }

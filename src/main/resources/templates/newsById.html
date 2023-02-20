@@ -16,6 +16,10 @@
 
 <style type="text/css">
 
+  .forms1{
+    margin-bottom: 10%;
+  }
+
   .line{
     display:inline-block;
 
@@ -96,19 +100,36 @@
         <p class="blog-post-meta" th:text="${news.getDate()}">Дата
       </div><!-- /.blog-post -->
       <a th:text="${news.getPublicist().getFirstName()}">Автор</a></p>
-      <div class="blog-post">
-        <a th:text="${news.getDescription()}">Текст</a>
+      <div class="forms1">
+        <div class="blog-post">
+          <a th:text="${news.getDescription()}">Текст</a>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-md-3 g-3">
+          <div th:each="element : ${image}">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="100%" role="img" aria-label="Placeholder: Thumbnail">
+              <defs>
+                <pattern th:id="'img' + ${element.getId()}" patternUnits="userSpaceOnUse" width="100%" height="100%">
+                  <image class='twombly bright'  th:href="@{'data:image/jpeg;base64,' + ${element.getPhoto()}}" x="-30" y="-30"
+                         width="380" height="267" />
+                </pattern>
+              </defs>
+              <title>Placeholder</title>
+              <rect width="100%" height="100%" th:fill="'url(#img' + ${element.getId()} + ')'">
+              </rect>
+            </svg>
+          </div>
+        </div>
       </div>
-      <img src="/images/${message.filename}}" />
+    </div>
       <nav class="blog-pagination">
-        <a th:if="${news.getId() == 0}" class="btn btn-outline-primary disabled">Предыдущая</a>
-        <a th:unless="${news.getId() == 0}" class="btn btn-outline-primary"  th:href="@{'/news/' + ${news.getId() - 1}}" >Предыдущая</a>
-        <a th:if="${news.getId() == size}" class="btn btn-outline-primary disabled">Следующая</a>
+        <a th:if="${news.getId() == 1}" class="btn btn-outline-primary disabled">Предыдущая</a>
+        <a th:unless="${news.getId() == 1}" class="btn btn-outline-primary"  th:href="@{'/news/' + ${news.getId() - 1}}" >Предыдущая</a>
+        <a th:if="${news.getId() == (size)}" class="btn btn-outline-primary disabled">Следующая</a>
         <a th:unless="${news.getId() == size}" class="btn btn-outline-primary"  th:href="@{'/news/' + ${news.getId() + 1}}" >Следующая</a>
 
       </nav>
     </div><!-- /.blog-main -->
-  </div>
+
 </main>
 
 </body>

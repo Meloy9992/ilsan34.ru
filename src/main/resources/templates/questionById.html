@@ -92,8 +92,8 @@
     <div class="row">
         <div class="col-md-8 blog-main">
             <h1 class="pb-4 mb-4 font-italic border-bottom" th:text="${question.getQuestion()}">Заголовок</h1>
-            <div class="blog-post">
-                <a th:text="${question.getAnswer()}">Текст</a>
+
+            <div th:insert="'/fragment/question' + ${question.getId()} + '.html' :: question">
             </div>
             <nav class="blog-pagination">
                 <a th:if="${question.getId() == 1}" class="btn btn-outline-primary disabled">Предыдущая</a>

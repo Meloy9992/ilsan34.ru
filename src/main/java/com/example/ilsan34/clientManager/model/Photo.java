@@ -20,7 +20,6 @@ public class Photo {
     private BigInteger id;
 
     @Column(name = "photo")
-   // @Lob
     private String photo;
 
 /*    @OneToOne(optional = false, mappedBy = "photo")
